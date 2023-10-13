@@ -8,21 +8,24 @@ public class Fib {
 
     int next;
 
-    Fib(int number) {
+    int[] generatedNumbers;
 
-        for(int i = 0; i < number; i++){
-
-            if (i < 2 ){
-                System.out.println(i);
+    public Fib(int numbers) {
+        generatedNumbers = new int[numbers];
+        for (int i = 0; i < numbers; i++) {
+            if (i < 2) {
+                generatedNumbers[i] = i;
             } else {
-
                 next = first + second;
                 first = second;
                 second = next;
-
-                System.out.println(next);
+                generatedNumbers[i] = next;
             }
+            System.out.println(generatedNumbers[i]); // Print the generated numbers
         }
     }
 
+    public int[] getGeneratedNumbers() {
+        return generatedNumbers;
+    }
 }
